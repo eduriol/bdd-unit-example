@@ -1,3 +1,5 @@
+package com.bdd.retail.entities;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
