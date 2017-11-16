@@ -19,5 +19,11 @@ public class WhenSigningUpANewCustomer {
 		Customer customer = new Customer("123456789", "Marty", "McFly");
 		assertEquals(100, customer.getPoints());
 	}
+	
+	@Test
+	public void the_customer_should_receive_a_welcome_message() {
+		Customer customer = new Customer("123456789", "Marty", "McFly");
+		assertEquals("Welcome to our platform!", customer.getLastNotificationReceived().getTitle());
+	}
 
 }

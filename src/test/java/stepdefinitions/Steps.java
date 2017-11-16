@@ -30,5 +30,10 @@ public class Steps {
 	public void starts_with_points(int expectedNumberOfPoints) throws PendingException {
 	    assertEquals(100, customer.getPoints());
 	}
+	
+	@Then("^(?:he|she) receives a welcome notification$")
+	public void she_receives_a_welcome_notification() throws PendingException {
+		assertEquals("Welcome to our platform!", customer.getLastNotificationReceived().getTitle());
+	}
 
 }
