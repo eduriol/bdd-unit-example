@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.bdd.retail.entities.Customer;
 
-public class WhenSigningUpANewCustomer {
+public class WhenSigningUpANewCustomerTest {
 
 	@Test
 	public void the_customer_should_be_correctly_set_up() {

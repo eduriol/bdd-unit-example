@@ -7,7 +7,7 @@ import org.junit.Test;
 import com.bdd.retail.entities.Customer;
 import com.bdd.retail.entities.CustomerNotification;
 
-public class WhenCreatingANewNotification {
+public class WhenCreatingANewNotificationTest {
 	
 	@Test
 	public void the_notification_should_be_correctly_created() {
