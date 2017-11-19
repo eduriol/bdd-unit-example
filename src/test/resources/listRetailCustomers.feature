@@ -5,12 +5,12 @@ I want to get lists of new customers
 
 Scenario: platform should provide with a list of customers signed up today
 	Given the following people signed up:
-		| name		| surname	| sign up date	|
-		| Marty		| McFly		| now			|
-		| Jennifer	| Parker	| now			|
-		| Emmett	| Brown		| 2016-10-25	|
-		| Biff		| Tannen	| 2015-08-31	|
-	When I order a list of customers signed up today
+		| name		| surname	| signed up date	|
+		| Marty		| McFly		| 2017-11-19		|
+		| Jennifer	| Parker	| 2017-11-19		|
+		| Emmett	| Brown		| 2016-10-25		|
+		| Biff		| Tannen	| 2015-08-31		|
+	When I order a list of customers signed up after yesterday
 	Then I get the following customers:
 		| name		| surname	|
 		| Marty		| McFly		|
