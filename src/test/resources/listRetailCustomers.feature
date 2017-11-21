@@ -6,12 +6,13 @@ I want to get lists of new customers
 Scenario: platform should provide with a list of customers signed up today
 	Given the following people signed up:
 		| name		| surname	| signed up date	|
-		| Marty		| McFly		| 2017-11-19		|
-		| Jennifer	| Parker	| 2017-11-19		|
+		| Marty		| McFly		| 2017-11-21		|
+		| Jennifer	| Parker	| 2017-11-21		|
 		| Emmett	| Brown		| 2016-10-25		|
 		| Biff		| Tannen	| 2015-08-31		|
-	When I order a list of customers signed up after yesterday
+	And I assign them to my retail
+	When I order a list of my retail customers signed up after yesterday
 	Then I get the following customers:
-		| name		| surname	|
-		| Marty		| McFly		|
-		| Jennifer	| Parker	|
+		| name		| surname	| signed up date	|
+		| Marty		| McFly		| 2017-11-21		|
+		| Jennifer	| Parker	| 2017-11-21		|

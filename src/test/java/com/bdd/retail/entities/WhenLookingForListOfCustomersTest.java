@@ -18,10 +18,10 @@ public class WhenLookingForListOfCustomersTest {
 		Retail myRetail = new Retail();
 		Date today = new Date();
 		Date yesterday = new Date(System.currentTimeMillis()-24*60*60*1000);
-		new Customer("123456789", "Marty", "McFly", today, myRetail);
-		new Customer("123456788", "Jennifer", "Parker", today, myRetail);
-		new Customer("123456787", "Emmett", "Brown", yesterday, myRetail);
-		new Customer("123456786", "Biff", "Tannen", dateFormatter.parse("2015-12-25"), myRetail);
+		myRetail.addCustomer(new Customer("123456789", "Marty", "McFly", today));
+		myRetail.addCustomer(new Customer("123456788", "Jennifer", "Parker", today));
+		myRetail.addCustomer(new Customer("123456787", "Emmett", "Brown", yesterday));
+		myRetail.addCustomer(new Customer("123456786", "Biff", "Tannen", dateFormatter.parse("2015-12-25")));
 		assertEquals(2, myRetail.getCustomersSignedUpAfter(yesterday).size());	
 	}
 

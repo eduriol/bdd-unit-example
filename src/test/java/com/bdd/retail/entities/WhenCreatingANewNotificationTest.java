@@ -17,7 +17,7 @@ public class WhenCreatingANewNotificationTest {
 	
 	@Test
 	public void the_notification_should_be_correctly_created() throws ParseException {
-		Customer customer = new Customer("123456789", "Marty", "McFly", dateFormatter.parse("2016-12-25"), new Retail());
+		Customer customer = new Customer("123456789", "Marty", "McFly", dateFormatter.parse("2016-12-25"));
 		CustomerNotification notification = new CustomerNotification("Welcome to our platform!", customer);
 		assertEquals("Welcome to our platform!", notification.getTitle());
 		assertEquals("Marty McFly", notification.getReceiverName());
