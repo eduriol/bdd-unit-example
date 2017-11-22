@@ -8,6 +8,7 @@ import java.util.List;
 import com.bdd.retail.entities.Customer;
 import com.bdd.retail.entities.Retail;
 
+import cucumber.api.DataTable;
 import cucumber.api.Format;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -62,14 +63,8 @@ public class Steps {
 	}
 	
 	@Then("^I get the following customers:$")
-	public void i_get_the_following_customers(@Format("yyyy-MM-dd") List<Customer> expectedCustomersSignedUpAfterYesterday) {
-	    assertEquals(expectedCustomersSignedUpAfterYesterday.size(), this.customersSignedUpAfterYesterday.size());
-	    for (int i = 0; i < expectedCustomersSignedUpAfterYesterday.size(); i++) {
-	    	Customer expectedCustomer = expectedCustomersSignedUpAfterYesterday.get(i);
-	    	Customer actualCustomer = this.customersSignedUpAfterYesterday.get(i);
-	    	assertEquals(expectedCustomer.getName(), actualCustomer.getName());
-	    	assertEquals(expectedCustomer.getSurname(), actualCustomer.getSurname());
-	    }
+	public void i_get_the_following_customers(@Format("yyyy-MM-dd") DataTable expectedCustomersSignedUpAfterYesterday) {
+		expectedCustomersSignedUpAfterYesterday.diff(this.customersSignedUpAfterYesterday);
 	}
 
 }
