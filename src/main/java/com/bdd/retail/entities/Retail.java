@@ -8,14 +8,14 @@ public class Retail {
 	
 	private List<Customer> customers = new ArrayList<>();
 
-	public List<Customer> getCustomersSignedUpAfter(Date startingDate) {
-		List<Customer> customersSignedUpAfterDate = new ArrayList<>();
+	public List<Customer> getCustomersSignedUpOn(Date date) {
+		List<Customer> customersSignedUpOnDate = new ArrayList<>();
 		for (Customer customer : this.customers) {
-			if (customer.getSignedUpDate().after(startingDate)) {
-				customersSignedUpAfterDate.add(customer);
+			if (customer.getSignedUpDate().equals(date)) {
+				customersSignedUpOnDate.add(customer);
 			}
 		}
-		return customersSignedUpAfterDate;
+		return customersSignedUpOnDate;
 	}
 
 	public void addCustomer(Customer customer) {

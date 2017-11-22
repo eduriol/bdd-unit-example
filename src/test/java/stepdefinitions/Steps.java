@@ -2,6 +2,9 @@ package stepdefinitions;
 
 import static org.junit.Assert.assertEquals;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +24,7 @@ public class Steps {
 	Customer customer;
 	Retail retail = new Retail();
 	List<Customer> signedUpPeople;
-	List<Customer> customersSignedUpAfterYesterday;
+	List<Customer> customersSignedUpOnLastChristmasDay;
 
 	@Given("^(.+) (.+) wants to become a new customer$")
 	public void wants_to_become_a_new_customer(String name, String surname) {
@@ -46,10 +49,11 @@ public class Steps {
 	    this.customer = new Customer("123456789", name, surname, new Date());
 	}
 	
-	@When("^I order a list of my retail customers signed up after yesterday$")
-	public void i_order_a_list_of_customers_signed_up_today() {
-		Date yesterday = new Date(System.currentTimeMillis()-24*60*60*1000);
-		this.customersSignedUpAfterYesterday = this.retail.getCustomersSignedUpAfter(yesterday);
+	@When("^I order a list of my retail customers signed up during last Christmas Day$")
+	public void i_order_a_list_of_customers_signed_up_during_last_xmas_day() throws ParseException {
+		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date lastChristmasDay = dateFormatter.parse("2016-12-25");
+		this.customersSignedUpOnLastChristmasDay = this.retail.getCustomersSignedUpOn(lastChristmasDay);
 	}
 
 	@Then("^(?:he|she) starts with (\\d+) points$")
@@ -64,7 +68,7 @@ public class Steps {
 	
 	@Then("^I get the following customers:$")
 	public void i_get_the_following_customers(@Format("yyyy-MM-dd") DataTable expectedCustomersSignedUpAfterYesterday) {
-		expectedCustomersSignedUpAfterYesterday.diff(this.customersSignedUpAfterYesterday);
+		expectedCustomersSignedUpAfterYesterday.diff(this.customersSignedUpOnLastChristmasDay);
 	}
 
 }

@@ -14,7 +14,7 @@ public class WhenLookingForListOfCustomersTest {
 	DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 	
 	@Test
-	public void the_list_of_customers_signed_up_since_a_date_should_be_correctly_created() throws ParseException {
+	public void the_list_of_customers_signed_up_on_a_date_should_be_correctly_created() throws ParseException {
 		Retail myRetail = new Retail();
 		Date today = new Date();
 		Date yesterday = new Date(System.currentTimeMillis()-24*60*60*1000);
@@ -22,7 +22,7 @@ public class WhenLookingForListOfCustomersTest {
 		myRetail.addCustomer(new Customer("123456788", "Jennifer", "Parker", today));
 		myRetail.addCustomer(new Customer("123456787", "Emmett", "Brown", yesterday));
 		myRetail.addCustomer(new Customer("123456786", "Biff", "Tannen", dateFormatter.parse("2015-12-25")));
-		assertEquals(2, myRetail.getCustomersSignedUpAfter(yesterday).size());	
+		assertEquals(1, myRetail.getCustomersSignedUpOn(yesterday).size());	
 	}
 
 }
