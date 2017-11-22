@@ -21,7 +21,7 @@ public class Customer {
 		this.surname = surname;
 		this.signedUpDate = signedUpDate;
 		this.numberOfPoints = Customer.INITIAL_NUMBER_OF_POINTS;
-		this.notificationsReceived = new ArrayList<CustomerNotification>();
+		this.notificationsReceived = new ArrayList<>();
 		this.notificationsReceived.add(new CustomerNotification(Customer.WELCOME_MESSAGE, this));
 	}
 	
