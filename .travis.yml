@@ -1,5 +1,10 @@
 language: java
 sudo: false
+addons:
+  sonarcloud:
+    organization: "eduriol-github"
+    token:
+      secure: "Zh4LQlVpZS3IGT2V5CWSPWLLvT+1XnSebXpfSK2Ak8M23faVFsXw6k4qLWtZQSBqAM2A/oMdIGRN/IdK5BabvZs0zGhW0Dz9EW2/kHJDNo++67OYaFyio3Ji276xL6ql3QFPqrHoEr5MMG0m7jvZDDUvkKzf4tEaJ8w1f1PHI8LYAfUh/xQCH3CE/i230wOu7TLvNgdbN3pWkmh9DERLY+4tYDMIMIKor0Jzj5BcN1CeM9apAgBpZzU5kkY9niXCmvMUDhg5dNbFZUkfJ0eEP1WAMvGXqDzai/088kp/YzcFnvNrrcQxtVvSxFW7OmfaOK17qSLaodQlPae0/HlvxvGntvglAcZPchpIkewb46EXwFVWSx0X11b5kLM3BmmRrl5Vi8eEs/cV/3djurs6kXoT5k8RT2MUPAoxkyBPZo0F41ixO62hCETg0xNjBu2oSc/WyoY2Qdl8hHGt9MYrgXGL/iWlN4TvFB4uTDCabDgYYDgMZ56w8aAIsRWGIbdyijViZq4S6cXE4Eb3loKdeO+Cnbxi1vUpWPHhmRO6OHR02sGBxUAtqBC48M0aiGWQfaeCCrQJ+KlL5CHgxrufsA9YYgSCcxYdRzCmyS8FAtJegjJhgOLeP3c3V1nRAtjhARi6d/0KLzIP9iJ9J0dZic/e2BZWOKbiwtGx2LqF2Ls="
 stages:
   - compile
   - test
@@ -10,3 +15,5 @@ jobs:
       script: "mvn clean compile"
     - stage: test
       script: "mvn test"
+    - stage: code analysis
+      script: "mvn sonar:sonar"
