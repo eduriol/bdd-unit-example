@@ -1,4 +1,8 @@
 # bdd-unit-example
+
+
+[![Build Status](https://travis-ci.org/eduriol/bdd-unit-example.svg?branch=master)](https://travis-ci.org/eduriol/bdd-unit-example)
+
 Following principles at John Ferguson Smart's book *BDD in action*, I made this example of how to let BDD & TDD cycle design your code using Cucumber & JUnit.
 ## Installation
 First of all you need to have [Maven](https://maven.apache.org/) installed. Once you have it, in order to build the project, just follow the next steps:
