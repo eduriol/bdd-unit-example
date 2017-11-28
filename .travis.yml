@@ -1,3 +1,12 @@
 language: java
 sudo: false
-script: "mvn clean test"
+stages:
+  - compile
+  - test
+  - code analysis
+jobs:
+  include:
+    - stage: compile
+      script: "mvn clean compile"
+    - stage: test
+      script: "mvn test"
