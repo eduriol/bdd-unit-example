@@ -16,4 +16,4 @@ jobs:
     - stage: test
       script: "mvn test"
     - stage: code analysis
-      script: "mvn sonar:sonar"
+      script: "mvn org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar"
