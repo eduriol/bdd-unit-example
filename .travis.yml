@@ -14,6 +14,6 @@ jobs:
     - stage: compile
       script: "mvn clean compile"
     - stage: test
-      script: "mvn org.jacoco:jacoco-maven-plugin:prepare-agent install"
+      script: "mvn test"
     - stage: code analysis
-      script: "mvn sonar:sonar"
+      script: "mvn org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar"
